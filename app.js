@@ -38,7 +38,9 @@ app.use(
 );
 
 // DB + Session
-connectDB();
+connectDB().catch(err => {
+  console.error("Initial database connection failed. Server will continue running, but DB operations will fail.", err.message);
+});
 app.use(sessionMiddleware);
 
 // Routes
