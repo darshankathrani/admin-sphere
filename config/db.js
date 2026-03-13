@@ -12,6 +12,12 @@ const connectDB = async () => {
     return cachedConnection;
   }
 
+  if (!process.env.MONGO_URI) {
+    throw new Error(
+      "MONGO_URI environment variable is missing. Please add it to your Vercel Dashboard."
+    );
+  }
+
   console.log("Starting new MongoDB connection...");
   cachedConnection = mongoose.connect(process.env.MONGO_URI, {
     bufferCommands: false,
