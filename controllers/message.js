@@ -1,4 +1,5 @@
 const Message = require("../models/message");
+const connectDB = require("../config/db");
 
 /**
  * Message Controller
@@ -26,13 +27,19 @@ const handlePostContact = async (req, res) => {
     return res.status(400).json({ msg: "Invalid phone" });
   }
 
-  // Create new message
   try {
+    // Ensure DB is connected before operation (important for serverless cold starts)
+    await connectDB();
+
+    // Create new message
     const data = await Message.create({ name, email, phone, message });
     return res.render("home", { data });
   } catch (err) {
     console.error("Error creating message:", err);
-    return res.status(500).json({ msg: "Internal Server Error", error: err.message });
+    return res.status(500).json({
+      msg: "Database connection failed. Please try again later.",
+      error: err.message,
+    });
   }
 };
 
