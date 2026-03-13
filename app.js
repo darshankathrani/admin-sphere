@@ -18,7 +18,7 @@ const messageRoute = require("./routes/message");
 app.set("trust proxy", 1);
 
 // Static files + View engine
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
