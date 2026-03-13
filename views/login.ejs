@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="icon" href="/meta-logo/tab-logo.svg" type="image/svg+xml" />
+    <title>Admin Login — Weblio</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="main-wrapper">
+      <div class="login-box">
+        <div class="logo-section">
+          <!-- Designed Box YB -->
+          <div class="brand-logo-box">W</div>
+          <!-- Bigger Font -->
+          <h1 class="admin-title">Admin Portal</h1>
+        </div>
+
+        <h2 class="welcome-text">Welcome back</h2>
+        <!-- Removed subtitle "Please enter your details to sign in." as requested -->
+
+        <% if (typeof error !=='undefined' && error) { %>
+        <div class="alert-box">
+          <span>⚠️</span>
+          <%= error %>
+        </div>
+        <% } %>
+
+        <!-- hidden dummy to reduce autofill issues -->
+        <input
+          type="text"
+          name="fakeusernameremembered"
+          style="display: none"
+          autocomplete="off"
+        />
+
+        <form action="/admin/login" method="POST" autocomplete="off" novalidate>
+          <div class="input-group">
+            <label for="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              class="text-field"
+              type="text"
+              placeholder="Enter your registered name"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              class="text-field"
+              type="email"
+              placeholder="you@company.com"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              class="text-field"
+              type="password"
+              placeholder="••••••••"
+              required
+              autocomplete="new-password"
+            />
+          </div>
+
+          <button class="submit-btn" type="submit">Sign in</button>
+        </form>
+
+        <div class="bottom-text">
+          <a href="/" style="text-decoration: none">&larr; Go to Home</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

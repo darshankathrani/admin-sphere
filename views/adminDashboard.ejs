@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+    <link rel="icon" href="/meta-logo/tab-logo.svg" type="image/svg+xml" />
+
+    <title>Admin Dashboard — Weblio</title>
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- SIDEBAR OVERLAY FOR MOBILE -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          Weblio Admin
+          <button id="closeSidebar" class="close-sidebar" aria-label="Close Menu">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+          </button>
+        </div>
+
+        <nav class="nav">
+          <a href="#admins" class="active">Admins</a>
+          <a href="#messages">Messages</a>
+          <a href="#settings">Settings</a>
+        </nav>
+
+        <form action="/admin/logout" method="POST" style="margin-top:20px">
+          <button class="logout" type="submit">Logout</button>
+        </form>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="content">
+        <div class="topbar">
+          <div class="topbar-left">
+            <button id="menuToggle" class="menu-toggle" aria-label="Open Menu">
+              <svg fill="currentColor" viewBox="0 0 24 24" width="28" height="28"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+            </button>
+            <div class="page-title">Admin Dashboard</div>
+          </div>
+          <div class="top-actions">
+            <div class="small muted">
+              Admins:
+              <strong> <%= admins.length %> </strong>
+              <span class="sep">&nbsp;|&nbsp;</span> Messages:
+              <strong> <%= messages.length %> </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <!-- Admins card -->
+          <section id="admins" class="card">
+            <h3>Admin Users</h3>
+            <div class="small muted">List of admin accounts</div>
+            <div style="margin-top: 12px; overflow: auto">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <!-- <th>Created</th> -->
+                    <!-- <th style="width: 110px">Actions</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if (typeof admins !=='undefined' && admins.length> 0) { %>
+                  <% admins.forEach(function(admin){ %>
+                  <tr>
+                    <td>
+                      <strong> <%= admin.name %> </strong>
+                      <div class="small muted">
+                        <%= admin.role ? admin.role : '' %>
+                      </div>
+                    </td>
+                    <td><%= admin.email %></td>
+                    <td class="small muted">
+                      <%= admin.createdAt ? new
+                      Date(admin.createdAt).toLocaleString() : '' %>
+                    </td>
+                    <td>
+                      <!-- <button class="btn ghost" type="button">Delete</button> -->
+                    </td>
+                  </tr>
+                  <% }) %> <% } %>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Messages card -->
+          <section id="messages" class="card">
+            <h3>Messages</h3>
+            <div class="small muted">
+              Customer messages received via contact form
+            </div>
+
+            <div style="margin-top: 12px; overflow: auto">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Message</th>
+                    <th>Received</th>
+                    <th style="width: 110px">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if (typeof messages !=='undefined' && messages.length> 0) {
+                  %> <% messages.forEach(function(msg){ %>
+                  <tr>
+                    <td><strong> <%= msg.name %> </strong></td>
+                    <td><%= msg.email %></td>
+                    <td><%= msg.phone %></td>
+                    <td class="truncate"><%= msg.message %></td>
+                    <td class="small muted">
+                      <%= msg.createdAt ? new
+                      Date(msg.createdAt).toLocaleString() : '' %>
+                    </td>
+                    <td>
+                      <form
+                        action="/contact/user/delete/<%= msg._id %>"
+                        method="POST"
+                        style="display: inline"
+                      >
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button type="submit" class="btn ghost">Delete</button>
+                      </form>
+                    </td>
+                  </tr>
+                  <% }) %> <% } %>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
+    <script src="/js/adminDashboard.js"></script>
+  </body>
+</html>

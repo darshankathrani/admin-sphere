@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="icon" href="/meta-logo/tab-logo.svg" type="image/svg+xml" />
+
+    <title>Weblio — Modern Sites. Real Results</title>
+    <meta
+      name="description"
+      content="Modern & professional websites for small businesses"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="/">Weblio.</a>
+
+        <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="28" height="28"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>
+            Modern Sites. <br />
+            <span class="accent-text">Real Results.</span>
+          </h1>
+
+          <p>
+            We build fast, modern websites for small businesses and startups.
+            This project demonstrates a complete landing page structure with
+            animations and backend integration.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Start Project</a>
+            <a href="/admin/login" class="btn btn-outline">Admin Login</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-card">
+            <div class="shape-1"></div>
+
+            <div class="inner-ui">
+              <div class="ui-bar w-40"></div>
+              <div class="ui-bar w-70"></div>
+              <div class="ui-bar w-70"></div>
+              <div class="ui-bar w-40" style="margin-top: auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="section-header">
+          <div class="gradient-heading-wrapper">
+            <h2 class="gradient-heading">About This Project</h2>
+          </div>
+
+          <p
+            class="section-subtitle"
+            style="
+              font-size: 18px;
+              color: var(--text-main);
+              margin-top: -30px;
+              margin-bottom: 24px;
+            "
+          >
+            Portfolio Demonstration
+          </p>
+
+          <div class="about-text">
+            <span>
+              Weblio is a concept landing page built to demonstrate modern web
+              development techniques.
+            </span>
+
+            <br /><br />
+
+            It showcases responsive UI design, scroll animations using GSAP,
+            Express.js backend integration, and a functional contact form. The
+            goal of this project is to simulate a real agency landing page
+            structure while keeping the implementation clean and scalable.
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Development Process</h2>
+
+          <p
+            class="section-subtitle"
+            style="
+              color: var(--text-muted);
+              text-transform: none;
+              font-weight: 400;
+              font-size: 16px;
+            "
+          >
+            A simplified development workflow used for this project.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-num">1</div>
+            <div class="step-title">Planning</div>
+            <div class="step-desc">Define layout structure and user flow.</div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">2</div>
+            <div class="step-title">UI Design</div>
+            <div class="step-desc">Create a modern responsive interface.</div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">3</div>
+            <div class="step-title">Development</div>
+            <div class="step-desc">Build frontend UI and backend logic.</div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">4</div>
+            <div class="step-title">Deployment</div>
+            <div class="step-desc">Deploy and test the application.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="section">
+        <div class="section-header">
+          <div class="gradient-heading-wrapper">
+            <h2 class="gradient-heading">Features Demonstrated</h2>
+          </div>
+
+          <p class="section-subtitle" style="margin-top: -30px">
+            Capabilities shown in this project
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Responsive Design</h3>
+            <p>Clean layout that adapts to desktop and mobile screens.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>GSAP Animations</h3>
+            <p>Smooth entrance animations and scroll-triggered effects.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Express Backend</h3>
+            <p>Contact form integrated with Express.js routes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PACKAGES -->
+      <section id="packages" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Website Packages</h2>
+
+          <p class="section-subtitle">
+            Simple packages designed for small businesses and startups.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Starter Website</h3>
+            <p>1–3 page responsive website perfect for small businesses.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Business Website</h3>
+            <p>
+              5–7 page professional website with contact form and SEO basics.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Custom Web App</h3>
+            <p>
+              Custom functionality with backend integration and database
+              support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Technology Stack</h2>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <span class="check-icon">⚡</span>
+            <span class="why-text">HTML / CSS / JavaScript</span>
+          </div>
+
+          <div class="why-item">
+            <span class="check-icon">⚡</span>
+            <span class="why-text">GSAP Animation Library</span>
+          </div>
+
+          <div class="why-item">
+            <span class="check-icon">⚡</span>
+            <span class="why-text">Node.js & Express Backend</span>
+          </div>
+
+          <div class="why-item">
+            <span class="check-icon">⚡</span>
+            <span class="why-text">MongoDB Integration</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="section-header">
+          <div class="gradient-heading-wrapper">
+            <h2 class="gradient-heading">Contact</h2>
+          </div>
+
+          <p class="section-subtitle" style="margin-top: -30px">
+            Send a message using the form below.
+          </p>
+        </div>
+
+        <div class="contact-form-container">
+          <form action="/contact/user" method="POST">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" name="name" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input type="email" name="email" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input type="tel" name="phone" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea name="message" class="form-textarea"></textarea>
+            </div>
+
+            <div style="text-align: center; margin-top: 32px">
+              <button type="submit" class="btn btn-primary" style="width: 100%">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <footer>© 2025 Weblio — Portfolio Demonstration Project.</footer>
+
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
+    <script src="/js/home.js"></script>
+  </body>
+</html>
