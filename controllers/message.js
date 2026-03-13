@@ -27,8 +27,13 @@ const handlePostContact = async (req, res) => {
   }
 
   // Create new message
-  const data = await Message.create({ name, email, phone, message });
-  return res.render("home", { data });
+  try {
+    const data = await Message.create({ name, email, phone, message });
+    return res.render("home", { data });
+  } catch (err) {
+    console.error("Error creating message:", err);
+    return res.status(500).json({ msg: "Internal Server Error", error: err.message });
+  }
 };
 
 // Handle Message Deletion
