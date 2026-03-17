@@ -1,6 +1,7 @@
 const Admin = require("../models/admin");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
+const connectDB = require("../config/db");
 
 /**
  * Admin Controller
@@ -24,6 +25,9 @@ const handleAdminLogIn = async (req, res) => {
     if (!emailRegex.test(email)) {
       return res.render("login", { error: "Invalid email format" });
     }
+
+    // Ensure DB is connected before operation
+    await connectDB();
 
     // Check if admin exists
     const admin = await Admin.findOne({ email });
